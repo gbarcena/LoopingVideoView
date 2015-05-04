@@ -1,0 +1,316 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ECECAA271AD9CAEB005BB138 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECECAA261AD9CAEB005BB138 /* AppDelegate.swift */; };
+		ECECAA291AD9CAEB005BB138 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECECAA281AD9CAEB005BB138 /* ViewController.swift */; };
+		ECECAA2C1AD9CAEB005BB138 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECECAA2A1AD9CAEB005BB138 /* Main.storyboard */; };
+		ECECAA2E1AD9CAEB005BB138 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECECAA2D1AD9CAEB005BB138 /* Images.xcassets */; };
+		ECECAA311AD9CAEB005BB138 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECECAA2F1AD9CAEB005BB138 /* LaunchScreen.xib */; };
+		ECECAA471AD9CBE1005BB138 /* LoopingVideoView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECECAA461AD9CBE1005BB138 /* LoopingVideoView2.swift */; };
+		ECECAA491AD9DA92005BB138 /* looping.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = ECECAA481AD9D92A005BB138 /* looping.mp4 */; };
+		ECECAA4B1ADB0615005BB138 /* LoopingVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECECAA4A1ADB0614005BB138 /* LoopingVideoView.swift */; };
+		ECECAA4F1ADB11FE005BB138 /* lM8racI.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = ECECAA4E1ADB11FE005BB138 /* lM8racI.mp4 */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		ECECAA211AD9CAEB005BB138 /* LoopingVideoView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoopingVideoView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECECAA251AD9CAEB005BB138 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECECAA261AD9CAEB005BB138 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		ECECAA281AD9CAEB005BB138 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		ECECAA2B1AD9CAEB005BB138 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		ECECAA2D1AD9CAEB005BB138 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		ECECAA301AD9CAEB005BB138 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		ECECAA461AD9CBE1005BB138 /* LoopingVideoView2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoopingVideoView2.swift; sourceTree = "<group>"; };
+		ECECAA481AD9D92A005BB138 /* looping.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = looping.mp4; sourceTree = "<group>"; };
+		ECECAA4A1ADB0614005BB138 /* LoopingVideoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoopingVideoView.swift; sourceTree = "<group>"; };
+		ECECAA4E1ADB11FE005BB138 /* lM8racI.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = lM8racI.mp4; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ECECAA1E1AD9CAEB005BB138 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ECCBE1341AF7233D002060B4 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				ECECAA4A1ADB0614005BB138 /* LoopingVideoView.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		ECECAA181AD9CAEB005BB138 = {
+			isa = PBXGroup;
+			children = (
+				ECECAA231AD9CAEB005BB138 /* LoopingVideoView */,
+				ECECAA221AD9CAEB005BB138 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ECECAA221AD9CAEB005BB138 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ECECAA211AD9CAEB005BB138 /* LoopingVideoView.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ECECAA231AD9CAEB005BB138 /* LoopingVideoView */ = {
+			isa = PBXGroup;
+			children = (
+				ECCBE1341AF7233D002060B4 /* Source */,
+				ECECAA261AD9CAEB005BB138 /* AppDelegate.swift */,
+				ECECAA281AD9CAEB005BB138 /* ViewController.swift */,
+				ECECAA2A1AD9CAEB005BB138 /* Main.storyboard */,
+				ECECAA2D1AD9CAEB005BB138 /* Images.xcassets */,
+				ECECAA2F1AD9CAEB005BB138 /* LaunchScreen.xib */,
+				ECECAA481AD9D92A005BB138 /* looping.mp4 */,
+				ECECAA4E1ADB11FE005BB138 /* lM8racI.mp4 */,
+				ECECAA241AD9CAEB005BB138 /* Supporting Files */,
+				ECECAA461AD9CBE1005BB138 /* LoopingVideoView2.swift */,
+			);
+			path = LoopingVideoView;
+			sourceTree = "<group>";
+		};
+		ECECAA241AD9CAEB005BB138 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ECECAA251AD9CAEB005BB138 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ECECAA201AD9CAEB005BB138 /* LoopingVideoView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECECAA401AD9CAEC005BB138 /* Build configuration list for PBXNativeTarget "LoopingVideoView" */;
+			buildPhases = (
+				ECECAA1D1AD9CAEB005BB138 /* Sources */,
+				ECECAA1E1AD9CAEB005BB138 /* Frameworks */,
+				ECECAA1F1AD9CAEB005BB138 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LoopingVideoView;
+			productName = LoopingVideoView;
+			productReference = ECECAA211AD9CAEB005BB138 /* LoopingVideoView.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ECECAA191AD9CAEB005BB138 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				TargetAttributes = {
+					ECECAA201AD9CAEB005BB138 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+				};
+			};
+			buildConfigurationList = ECECAA1C1AD9CAEB005BB138 /* Build configuration list for PBXProject "LoopingVideoView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ECECAA181AD9CAEB005BB138;
+			productRefGroup = ECECAA221AD9CAEB005BB138 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ECECAA201AD9CAEB005BB138 /* LoopingVideoView */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ECECAA1F1AD9CAEB005BB138 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECECAA2C1AD9CAEB005BB138 /* Main.storyboard in Resources */,
+				ECECAA4F1ADB11FE005BB138 /* lM8racI.mp4 in Resources */,
+				ECECAA311AD9CAEB005BB138 /* LaunchScreen.xib in Resources */,
+				ECECAA491AD9DA92005BB138 /* looping.mp4 in Resources */,
+				ECECAA2E1AD9CAEB005BB138 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ECECAA1D1AD9CAEB005BB138 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECECAA291AD9CAEB005BB138 /* ViewController.swift in Sources */,
+				ECECAA271AD9CAEB005BB138 /* AppDelegate.swift in Sources */,
+				ECECAA4B1ADB0615005BB138 /* LoopingVideoView.swift in Sources */,
+				ECECAA471AD9CBE1005BB138 /* LoopingVideoView2.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		ECECAA2A1AD9CAEB005BB138 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ECECAA2B1AD9CAEB005BB138 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		ECECAA2F1AD9CAEB005BB138 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ECECAA301AD9CAEB005BB138 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ECECAA3E1AD9CAEC005BB138 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		ECECAA3F1AD9CAEC005BB138 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ECECAA411AD9CAEC005BB138 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = LoopingVideoView/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		ECECAA421AD9CAEC005BB138 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = LoopingVideoView/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ECECAA1C1AD9CAEB005BB138 /* Build configuration list for PBXProject "LoopingVideoView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECECAA3E1AD9CAEC005BB138 /* Debug */,
+				ECECAA3F1AD9CAEC005BB138 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECECAA401AD9CAEC005BB138 /* Build configuration list for PBXNativeTarget "LoopingVideoView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECECAA411AD9CAEC005BB138 /* Debug */,
+				ECECAA421AD9CAEC005BB138 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ECECAA191AD9CAEB005BB138 /* Project object */;
+}

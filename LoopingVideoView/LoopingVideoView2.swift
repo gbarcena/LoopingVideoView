@@ -12,8 +12,8 @@ import AVFoundation
 @IBDesignable class LoopingVideoView2: UIView {
     @IBInspectable var mainBundleFileName : NSString?
     
-    var player1 : AVPlayer = AVPlayer()
-    var player2 : AVPlayer = AVPlayer()
+    var player1: AVPlayer = AVPlayer()
+    var player2: AVPlayer = AVPlayer()
     var playerLayer : AVPlayerLayer?
     
     override func layoutSubviews() {
@@ -24,7 +24,7 @@ import AVFoundation
                 play(url)
             }
             else {
-                println("LoopingVideoView: Cannot find video \(fileName)")
+                print("LoopingVideoView: Cannot find video \(fileName)")
             }
         }
     }
@@ -39,8 +39,8 @@ import AVFoundation
         let playerLayer = self.dynamicType.createPlayerLayer(asset)
         playerLayer.frame = layer.bounds
         layer.addSublayer(playerLayer)
-        playerLayer.player.play()
-        player1 = playerLayer.player
+        playerLayer.player?.play()
+        player1 = playerLayer.player!
         registerForFinishedPlayingNotification(player1)
         self.playerLayer = playerLayer
         
@@ -52,8 +52,8 @@ import AVFoundation
     }
     
     func videoDidFinish() {
-        println("Playing Finished  \(playerLayer?.player)")
-        var oldPlayer = playerLayer?.player
+        print("Playing Finished  \(playerLayer?.player)")
+        let oldPlayer = playerLayer?.player!
         oldPlayer?.pause()
         if oldPlayer == player1 {
             playerLayer?.player = player2
@@ -61,8 +61,8 @@ import AVFoundation
         else {
             playerLayer?.player = player1
         }
-        println("About to play with \(playerLayer?.player)")
-        playerLayer?.player.play()
+        print("About to play with \(playerLayer?.player)")
+        playerLayer?.player?.play()
         oldPlayer?.seekToTime(CMTimeMake(0, 600))
     }
     

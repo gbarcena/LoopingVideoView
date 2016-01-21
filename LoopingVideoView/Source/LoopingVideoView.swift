@@ -11,7 +11,7 @@ import AVFoundation
 
 @IBDesignable class LoopingVideoView: UIView {
     @IBInspectable var mainBundleFileName : NSString?
-    var playCount : Int = 100
+    var playCount: Int = 100
     var playerLayer = AVPlayerLayer()
     
     override func layoutSubviews() {
@@ -22,7 +22,7 @@ import AVFoundation
                 play(url, count: playCount)
             }
             else {
-                println("LoopingVideoView: Cannot find video \(fileName)")
+                print("LoopingVideoView: Cannot find video \(fileName)")
             }
         }
     }
@@ -32,19 +32,19 @@ import AVFoundation
         let playerLayer = self.dynamicType.createPlayerLayer(asset)
         playerLayer.frame = layer.bounds
         layer.addSublayer(playerLayer)
-        playerLayer.player.play()
+        playerLayer.player?.play()
         self.playerLayer = playerLayer
         let notificationCenter = NSNotificationCenter.defaultCenter()
         notificationCenter.removeObserver(self)
         notificationCenter.addObserver(self,
             selector: "videoDidFinish",
             name: AVPlayerItemDidPlayToEndTimeNotification,
-            object: self.playerLayer.player.currentItem)
+            object: self.playerLayer.player?.currentItem)
     }
     
     func videoDidFinish() {
-        playerLayer?.player.seekToTime(CMTimeMake(0, 600))
-        playerLayer?.player.play()
+        playerLayer.player?.seekToTime(CMTimeMake(0, 600))
+        playerLayer.player?.play()
     }
     
     class func composedAsset(url:NSURL, count:Int) -> AVAsset {
@@ -53,20 +53,29 @@ import AVFoundation
         let range = CMTimeRangeMake(CMTimeMake(0, 600), videoRange)
         var error : NSError?
         let finalAsset = AVMutableComposition()
-        let success = finalAsset.insertTimeRange(range,
-            ofAsset: videoAsset,
-            atTime: finalAsset.duration,
-            error: &error)
+        let success: Bool
+        do {
+            try finalAsset.insertTimeRange(range,
+                ofAsset: videoAsset,
+                atTime: finalAsset.duration)
+            success = true
+        } catch let error1 as NSError {
+            error = error1
+            success = false
+        }
         if (success && count > 1) {
-            for i in 1..<count {
-                finalAsset.insertTimeRange(range,
-                    ofAsset: videoAsset,
-                    atTime: finalAsset.duration,
-                    error: &error)
+            for _ in 1..<count {
+                do {
+                    try finalAsset.insertTimeRange(range,
+                        ofAsset: videoAsset,
+                        atTime: finalAsset.duration)
+                } catch let error1 as NSError {
+                    error = error1
+                }
             }
         }
         else {
-            println("LoopingVideoView: Error loading video \(error)")
+            print("LoopingVideoView: Error loading video \(error)")
         }
         return finalAsset;
     }

@@ -28,7 +28,10 @@ import AVFoundation
     }
     
     func play(url:NSURL, count:Int) {
-        let asset = self.dynamicType.composedAsset(url, count: count)
+        guard let asset = try? self.dynamicType.composedAsset(url, count: count) else {
+            print("LoopingVideoView: Error loading video from url: \(url)")
+            return
+        }
         let playerLayer = self.dynamicType.createPlayerLayer(asset)
         playerLayer.frame = layer.bounds
         layer.addSublayer(playerLayer)
@@ -47,36 +50,18 @@ import AVFoundation
         playerLayer.player?.play()
     }
     
-    class func composedAsset(url:NSURL, count:Int) -> AVAsset {
+    class func composedAsset(url:NSURL, count:Int) throws -> AVAsset {
         let videoAsset = AVURLAsset(URL: url, options: nil)
         let videoRange = CMTimeMake(videoAsset.duration.value, videoAsset.duration.timescale)
         let range = CMTimeRangeMake(CMTimeMake(0, 600), videoRange)
-        var error : NSError?
         let finalAsset = AVMutableComposition()
-        let success: Bool
-        do {
+        
+        for _ in 0..<count {
             try finalAsset.insertTimeRange(range,
                 ofAsset: videoAsset,
                 atTime: finalAsset.duration)
-            success = true
-        } catch let error1 as NSError {
-            error = error1
-            success = false
         }
-        if (success && count > 1) {
-            for _ in 1..<count {
-                do {
-                    try finalAsset.insertTimeRange(range,
-                        ofAsset: videoAsset,
-                        atTime: finalAsset.duration)
-                } catch let error1 as NSError {
-                    error = error1
-                }
-            }
-        }
-        else {
-            print("LoopingVideoView: Error loading video \(error)")
-        }
+        
         return finalAsset;
     }
     

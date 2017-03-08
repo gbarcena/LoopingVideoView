@@ -17,7 +17,7 @@ import AVFoundation
     override func layoutSubviews() {
         super.layoutSubviews()
         if let fileName = mainBundleFileName {
-            let url = NSBundle.mainBundle().URLForResource(fileName as String, withExtension: nil)
+            let url = Bundle.main.url(forResource: fileName as String, withExtension: nil)
             if let url = url {
                 play(url, count: playCount)
             }
@@ -27,45 +27,45 @@ import AVFoundation
         }
     }
     
-    func play(url:NSURL, count:Int) {
-        guard let asset = try? self.dynamicType.composedAsset(url, count: count) else {
+    func play(_ url:URL, count:Int) {
+        guard let asset = try? type(of: self).composedAsset(url, count: count) else {
             print("LoopingVideoView: Error loading video from url: \(url)")
             return
         }
-        let playerLayer = self.dynamicType.createPlayerLayer(asset)
+        let playerLayer = type(of: self).createPlayerLayer(asset)
         playerLayer.frame = layer.bounds
         layer.addSublayer(playerLayer)
         playerLayer.player?.play()
         self.playerLayer = playerLayer
-        let notificationCenter = NSNotificationCenter.defaultCenter()
+        let notificationCenter = NotificationCenter.default
         notificationCenter.removeObserver(self)
         notificationCenter.addObserver(self,
-            selector: "videoDidFinish",
-            name: AVPlayerItemDidPlayToEndTimeNotification,
+            selector: #selector(LoopingVideoView.videoDidFinish),
+            name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
             object: self.playerLayer.player?.currentItem)
     }
     
     func videoDidFinish() {
-        playerLayer.player?.seekToTime(CMTimeMake(0, 600))
+        playerLayer.player?.seek(to: CMTimeMake(0, 600))
         playerLayer.player?.play()
     }
     
-    class func composedAsset(url:NSURL, count:Int) throws -> AVAsset {
-        let videoAsset = AVURLAsset(URL: url, options: nil)
+    class func composedAsset(_ url:URL, count:Int) throws -> AVAsset {
+        let videoAsset = AVURLAsset(url: url, options: nil)
         let videoRange = CMTimeMake(videoAsset.duration.value, videoAsset.duration.timescale)
         let range = CMTimeRangeMake(CMTimeMake(0, 600), videoRange)
         let finalAsset = AVMutableComposition()
         
         for _ in 0..<count {
             try finalAsset.insertTimeRange(range,
-                ofAsset: videoAsset,
-                atTime: finalAsset.duration)
+                of: videoAsset,
+                at: finalAsset.duration)
         }
         
         return finalAsset;
     }
     
-    class func createPlayerLayer(asset:AVAsset) -> AVPlayerLayer {
+    class func createPlayerLayer(_ asset:AVAsset) -> AVPlayerLayer {
         let playerItem = AVPlayerItem(asset: asset)
         let player = AVPlayer(playerItem: playerItem)
         let playerLayer = AVPlayerLayer(player: player)

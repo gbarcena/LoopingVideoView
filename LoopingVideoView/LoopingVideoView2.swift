@@ -19,7 +19,7 @@ import AVFoundation
     override func layoutSubviews() {
         super.layoutSubviews()
         if let fileName = mainBundleFileName {
-            let url = NSBundle.mainBundle().URLForResource(fileName as String, withExtension: nil)
+            let url = Bundle.main.url(forResource: fileName as String, withExtension: nil)
             if let url = url {
                 play(url)
             }
@@ -29,14 +29,14 @@ import AVFoundation
         }
     }
     
-    func play(url:NSURL) {
+    func play(_ url:URL) {
         player1.pause()
         player2.pause()
-        let notificationCenter = NSNotificationCenter.defaultCenter()
+        let notificationCenter = NotificationCenter.default
         notificationCenter.removeObserver(self)
         
-        let asset = AVURLAsset(URL: url, options: nil)
-        let playerLayer = self.dynamicType.createPlayerLayer(asset)
+        let asset = AVURLAsset(url: url, options: nil)
+        let playerLayer = type(of: self).createPlayerLayer(asset)
         playerLayer.frame = layer.bounds
         layer.addSublayer(playerLayer)
         playerLayer.player?.play()
@@ -44,11 +44,11 @@ import AVFoundation
         registerForFinishedPlayingNotification(player1)
         self.playerLayer = playerLayer
         
-        player2 = self.dynamicType.createPlayer(asset)
+        player2 = type(of: self).createPlayer(asset)
         registerForFinishedPlayingNotification(player2)
         player2.play()
         player2.pause()
-        player2.seekToTime(CMTimeMake(0, 600))
+        player2.seek(to: CMTimeMake(0, 600))
     }
     
     func videoDidFinish() {
@@ -63,27 +63,27 @@ import AVFoundation
         }
         print("About to play with \(playerLayer?.player)")
         playerLayer?.player?.play()
-        oldPlayer?.seekToTime(CMTimeMake(0, 600))
+        oldPlayer?.seek(to: CMTimeMake(0, 600))
     }
     
-    class func createPlayer(asset:AVAsset) -> AVPlayer {
+    class func createPlayer(_ asset:AVAsset) -> AVPlayer {
         let playerItem = AVPlayerItem(asset: asset)
         let player = AVPlayer(playerItem: playerItem)
         return player;
     }
     
-    class func createPlayerLayer(asset:AVAsset) -> AVPlayerLayer {
+    class func createPlayerLayer(_ asset:AVAsset) -> AVPlayerLayer {
         let player = createPlayer(asset)
         let playerLayer = AVPlayerLayer(player: player)
         playerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
         return playerLayer;
     }
     
-    func registerForFinishedPlayingNotification(player:AVPlayer) {
-        let notificationCenter = NSNotificationCenter.defaultCenter()
+    func registerForFinishedPlayingNotification(_ player:AVPlayer) {
+        let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self,
-            selector: "videoDidFinish",
-            name: AVPlayerItemDidPlayToEndTimeNotification,
+            selector: #selector(LoopingVideoView2.videoDidFinish),
+            name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
             object: player.currentItem)
     }
     
